@@ -1,0 +1,75 @@
+version: "3.9"
+
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-agent-gateway
+    ports:
+      - "8801:8801"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./data:/app/data
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    depends_on:
+      llm-server:
+        condition: service_healthy
+      vision-server:
+        condition: service_healthy
+
+  llm-server:
+    image: ghcr.io/lm-studio/lm-studio:latest
+    container_name: ai-agent-llm
+    ports:
+      - "1234:1234"
+    volumes:
+      - ./models:/models
+      - ./data/llm-cache:/root/.cache/huggingface
+    environment:
+      - TZ=Asia/Shanghai
+      - HF_ENDPOINT=https://hf-mirror.com
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1234/v1/models"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 180s
+    restart: unless-stopped
+
+  vision-server:
+    build:
+      context: ./vision
+      dockerfile: Dockerfile.vision
+    container_name: ai-agent-vision
+    ports:
+      - "8800:8800"
+    volumes:
+      - ./models:/models
+      - ./data/vision-cache:/root/.cache/huggingface
+    environment:
+      - TZ=Asia/Shanghai
+      - HF_ENDPOINT=https://hf-mirror.com
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8800/v1/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 120s
+    restart: unless-stopped
