@@ -127,6 +127,7 @@ gateway/     — DingTalk messaging gateway configuration
 vision/      — Local vision reasoning server (Qwen2.5-VL-7B)
 memory/      — Persistent memory system
 scheduler/   — Automated task scheduling (cron jobs)
+screenshots/ — Screenshots and demo images
 README.md    — This file
 ```
 
