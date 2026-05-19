@@ -11,6 +11,10 @@ Local AI agent infrastructure with persistent memory, DingTalk integration, visi
 - Automated task scheduling
 - Cross-platform deployment (WSL)
 
+## How it works
+
+DingTalk receives user messages, forwards them to the local gateway, calls the local LLM, reads persistent memory, and returns the response through DingTalk.
+
 ## Architecture
 
 ```
@@ -29,9 +33,22 @@ Vision Server
 Automation Scheduler
 ```
 
+## Tech Stack
+
+- Python
+- Flask
+- LM Studio
+- Qwen2.5-VL-7B
+- DingTalk Bot
+- WSL
+- RTX 4070 Super
+- Cron
+
 ## Screenshots
 
-> Screenshots coming soon: terminal interface, DingTalk replies, API calls, Vision inference results.
+| Terminal CLI | DingTalk Chat | Vision API |
+|:---:|:---:|:---:|
+| ![terminal](screenshots/terminal.svg) | ![dingtalk](screenshots/dingtalk.svg) | ![vision-api](screenshots/vision-api.svg) |
 
 ## Project Structure
 
