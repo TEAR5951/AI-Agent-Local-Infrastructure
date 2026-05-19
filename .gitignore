@@ -1,0 +1,34 @@
+# Credentials & Secrets
+.env
+*.key
+config/config.yaml
+auth.json
+credentials.json
+
+# Runtime Data
+*.db
+*.db-shm
+*.db-wal
+*.log
+__pycache__/
+*.pyc
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Local Environment
+venv/
+.venv/
+node_modules/
+
+# Large Assets
+*.gguf
+*.safetensors
+*.bin
+*.pth
