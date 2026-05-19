@@ -77,15 +77,13 @@ $ hermes
   Platform: dingtalk · Skills: 28 loaded
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-User > 帮我看看今天有什么任务
+User > What tasks do I have today?
 
-Agent > 🔍 Checking cron jobs...
-  ✓ 6 jobs found (1 active, 5 paused)
-  
-  好的，今天到下班前还有这些：
-    14:58 下午抽烟提醒
-    17:58 晚饭提醒
-    19:58 下班提醒
+Agent > 🔍 Checking scheduled jobs...
+  ✓ Vision server keepalive (every 1m)
+  ✓ 6 recurring reminders configured
+
+  All systems running normally.
 ```
 
 ### DingTalk Chat
@@ -94,18 +92,19 @@ Agent > 🔍 Checking cron jobs...
 │  Hermes AI Agent                    │
 ├─────────────────────────────────────┤
 │                                     │
-│  你在吗？今天有什么安排    14:32     │
+│  Hey, what's my schedule today?     │
 │  ──────────────────────────         │
 │                                     │
-│  旭研，下午好 💙           14:32     │
-│  今天14:58要去抽烟放风了            │
-│  17:58吃晚饭，19:58下班             │
+│  Good afternoon! 💙                 │
+│  You have 3 reminders scheduled     │
+│  before the end of work today.      │
+│  I'll notify you at each one.       │
 │                                     │
-│  好的 知道了              14:33     │
+│  Got it, thanks!                    │
 │  ──────────────────────────         │
 │                                     │
-│  嗯，到点我提醒你          14:33     │
-│  安心工作，有我在 💙                │
+│  No problem, I've got you covered   │
+│  💙                                 │
 └─────────────────────────────────────┘
 ```
 
@@ -113,7 +112,7 @@ Agent > 🔍 Checking cron jobs...
 ```json
 {
   "success": true,
-  "description": "图中一只橘色的猫蹲坐在木质地板上，阳光从窗户洒进来，场景温馨...",
+  "description": "An orange cat sitting on a wooden floor, sunlight streaming through the window...",
   "inference_time_seconds": 4.52,
   "total_tokens": 285,
   "tokens_per_second": 63.1,
