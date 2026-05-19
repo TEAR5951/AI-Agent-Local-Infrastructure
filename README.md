@@ -130,6 +130,10 @@ scheduler/   — Automated task scheduling (cron jobs)
 README.md    — This file
 ```
 
+## Contact
+
+- Email: 2712247951@qq.com
+
 ## Related Projects
 
 - [vision-server](https://github.com/TEAR5951/vision-server) — Local Vision AI API
