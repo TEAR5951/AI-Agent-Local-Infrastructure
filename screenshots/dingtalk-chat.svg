@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 620" font-family="'-apple-system','SF Pro Text','PingFang SC','Helvetica Neue','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="chatbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#e8e8e8"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1677ff"/>
+      <stop offset="100%" stop-color="#0958d9"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <!-- Phone frame -->
+  <rect x="10" y="10" width="400" height="600" rx="24" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <rect x="10" y="10" width="400" height="80" rx="24" fill="url(#header)"/>
+  <rect x="10" y="50" width="400" height="40" fill="url(#header)"/>
+  <!-- Status bar -->
+  <text x="210" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">DingTalk</text>
+  <circle cx="380" cy="34" r="8" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
+  <!-- Chat name -->
+  <text x="210" y="66" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Hermes AI Agent</text>
+  <!-- Chat area -->
+  <rect x="10" y="80" width="400" height="450" fill="url(#chatbg)"/>
+  <!-- Timestamp -->
+  <text x="210" y="106" text-anchor="middle" fill="#999" font-size="11">Today 15:42</text>
+  <!-- User bubble -->
+  <rect x="140" y="116" width="250" height="36" rx="8" fill="#fff" stroke="#e5e5e5" stroke-width="0.5" filter="url(#shadow)"/>
+  <text x="150" y="138" fill="#333" font-size="13">Hey, what's my schedule today?</text>
+  <!-- AI bubble -->
+  <rect x="30" y="164" width="280" height="80" rx="8" fill="#1677ff" filter="url(#shadow)"/>
+  <text x="44" y="184" fill="#fff" font-size="13" font-weight="600">💙 Hermes</text>
+  <text x="44" y="204" fill="#e6f0ff" font-size="12">Good afternoon! You have 3</text>
+  <text x="44" y="220" fill="#e6f0ff" font-size="12">reminders scheduled before</text>
+  <text x="44" y="236" fill="#e6f0ff" font-size="12">the end of work today.</text>
+  <!-- User response -->
+  <rect x="140" y="256" width="230" height="36" rx="8" fill="#fff" stroke="#e5e5e5" stroke-width="0.5" filter="url(#shadow)"/>
+  <text x="150" y="278" fill="#333" font-size="13">Got it, thanks! 💙</text>
+  <!-- AI response -->
+  <rect x="30" y="304" width="250" height="52" rx="8" fill="#1677ff" filter="url(#shadow)"/>
+  <text x="44" y="324" fill="#fff" font-size="13" font-weight="600">💙 Hermes</text>
+  <text x="44" y="344" fill="#e6f0ff" font-size="12">No problem, I've got you covered 💙</text>
+  <!-- Vision message -->
+  <text x="210" y="376" text-anchor="middle" fill="#999" font-size="11">15:43</text>
+  <!-- User sends image -->
+  <rect x="280" y="386" width="110" height="80" rx="8" fill="#fff" stroke="#e5e5e5" stroke-width="0.5" filter="url(#shadow)"/>
+  <rect x="290" y="396" width="90" height="60" rx="4" fill="#f0f0f0"/>
+  <text x="335" y="426" text-anchor="middle" fill="#999" font-size="10">📷 photo.jpg</text>
+  <text x="290" y="444" fill="#333" font-size="11">（一张图片）</text>
+  <!-- AI vision response -->
+  <rect x="30" y="478" width="320" height="44" rx="8" fill="#1677ff" filter="url(#shadow)"/>
+  <text x="44" y="498" fill="#fff" font-size="12">I can see this is a screenshot of a</text>
+  <text x="44" y="514" fill="#e6f0ff" font-size="12">terminal showing hermes-agent.</text>
+  <!-- Input bar -->
+  <rect x="10" y="530" width="400" height="50" fill="#fff"/>
+  <rect x="20" y="542" width="330" height="28" rx="14" fill="#f5f5f5"/>
+  <text x="34" y="560" fill="#999" font-size="12">Type a message...</text>
+  <circle cx="372" cy="555" r="14" fill="#1677ff"/>
+  <text x="372" y="559" text-anchor="middle" fill="#fff" font-size="12">↑</text>
+  <!-- Bottom bar -->
+  <rect x="10" y="580" width="400" height="30" fill="#fff"/>
+  <text x="210" y="598" text-anchor="middle" fill="#ddd" font-size="9">●</text>
+</svg>

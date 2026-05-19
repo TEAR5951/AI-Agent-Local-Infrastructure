@@ -15,7 +15,7 @@ AI infrastructure for persistent local intelligence and multi-platform agent wor
 
 DingTalk receives user messages and forwards them to the local gateway.  
 The gateway calls the local LLM, loads persistent memory, and returns responses through DingTalk.  
-Vision tasks are routed to the local vision server when image reasoning is required.
+Vision requests are routed to the local vision server when image reasoning is required.
 
 ## Architecture
 
@@ -67,58 +67,11 @@ Vision tasks are routed to the local vision server when image reasoning is requi
 
 ## Screenshots
 
-### Terminal CLI
-```
-$ hermes
+| Terminal CLI | DingTalk Chat | Vision API |
+|:---:|:---:|:---:|
+| ![terminal-cli](screenshots/terminal-cli.svg) | ![dingtalk-chat](screenshots/dingtalk-chat.svg) | ![vision-api](screenshots/vision-api.svg) |
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  🤖 Hermes Agent
-  Model: deepseek-v4-flash · Context: 1M tokens
-  Platform: dingtalk · Skills: 28 loaded
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-User > What tasks do I have today?
-
-Agent > 🔍 Checking scheduled jobs...
-  ✓ Vision server keepalive (every 1m)
-  ✓ 6 recurring reminders configured
-
-  All systems running normally.
-```
-
-### DingTalk Chat
-```
-┌─────────────────────────────────────┐
-│  Hermes AI Agent                    │
-├─────────────────────────────────────┤
-│                                     │
-│  Hey, what's my schedule today?     │
-│  ──────────────────────────         │
-│                                     │
-│  Good afternoon! 💙                 │
-│  You have 3 reminders scheduled     │
-│  before the end of work today.      │
-│  I'll notify you at each one.       │
-│                                     │
-│  Got it, thanks!                    │
-│  ──────────────────────────         │
-│                                     │
-│  No problem, I've got you covered   │
-│  💙                                 │
-└─────────────────────────────────────┘
-```
-
-### Vision API Response
-```json
-{
-  "success": true,
-  "description": "An orange cat sitting on a wooden floor, sunlight streaming through the window...",
-  "inference_time_seconds": 4.52,
-  "total_tokens": 285,
-  "tokens_per_second": 63.1,
-  "model": "Qwen/Qwen2.5-VL-7B-Instruct"
-}
-```
+DingTalk agent running locally with persistent memory, vision reasoning, and scheduled reminders.
 
 ## Project Structure
 
@@ -127,7 +80,6 @@ gateway/     — DingTalk messaging gateway configuration
 vision/      — Local vision reasoning server (Qwen2.5-VL-7B)
 memory/      — Persistent memory system
 scheduler/   — Automated task scheduling (cron jobs)
-screenshots/ — Screenshots and demo images
 README.md    — This file
 ```
 
