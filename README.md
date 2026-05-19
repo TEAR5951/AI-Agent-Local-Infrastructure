@@ -56,14 +56,14 @@ Vision requests are routed to the local vision server when image reasoning is re
 
 ## Tech Stack
 
-- Python
-- Flask
-- LM Studio
-- Qwen2.5-VL-7B
-- DingTalk Bot
-- WSL
-- Cron
-- RTX 4070 Super
+- Python 3.11+ (asyncio)
+- FastAPI / Uvicorn
+- SQLite (memory + scheduler)
+- LM Studio (local LLM inference)
+- Qwen2.5-VL-7B (vision reasoning)
+- DingTalk Bot (messaging)
+- Docker Compose
+- NVIDIA RTX 4070 Super
 
 ## Screenshots
 
@@ -76,11 +76,25 @@ DingTalk agent running locally with persistent memory, vision reasoning, and sch
 ## Project Structure
 
 ```
-gateway/     — DingTalk messaging gateway configuration
-vision/      — Local vision reasoning server (Qwen2.5-VL-7B)
-memory/      — Persistent memory system
-scheduler/   — Automated task scheduling (cron jobs)
-README.md    — This file
+gateway/          — Message gateway (FastAPI)
+  server.py       — Main FastAPI application
+  config.py       — Pydantic configuration model
+  dingtalk.py     — DingTalk bot client
+  llm_client.py   — OpenAI-compatible LLM client
+
+vision/           — Vision analysis client
+  __init__.py     — VisionClient for local vision server
+
+memory/           — Persistent memory store (SQLite)
+  __init__.py     — MemoryStore with FTS5 search
+
+scheduler/        — Async task scheduler
+  __init__.py     — Cron-like scheduler with SQLite persistence
+
+config.yaml.example  — Configuration template
+docker-compose.yml  — Multi-service orchestration
+Dockerfile           — Gateway container build
+requirements.txt     — Python dependencies
 ```
 
 ## Contact
