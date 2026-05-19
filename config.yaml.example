@@ -1,0 +1,33 @@
+# AI Agent Local Infrastructure — Configuration
+# Copy to config.yaml and modify for your environment.
+
+# Gateway server
+host: "0.0.0.0"
+port: 8801
+debug: false
+log_level: "INFO"
+
+# Local LLM inference (LM Studio / vLLM / LocalAI)
+llm:
+  base_url: "http://localhost:1234/v1"
+  api_key: "lm-studio"
+  model: ""                     # Empty = auto-detect
+  max_tokens: 4096
+  temperature: 0.7
+  timeout: 60
+
+# DingTalk bot integration
+dingtalk:
+  webhook_url: ""               # Your DingTalk custom bot webhook URL
+  token: ""                     # Webhook secret for signature
+
+# Memory storage
+memory:
+  backend: "sqlite"             # sqlite | json
+  db_path: "./data/memory.db"
+  max_history: 100
+
+# Task scheduler
+scheduler:
+  enabled: true
+  check_interval: 30            # Seconds between polling
