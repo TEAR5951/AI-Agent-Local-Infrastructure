@@ -12,6 +12,7 @@ credentials.json
 *.log
 __pycache__/
 *.pyc
+/data/
 
 # OS Files
 .DS_Store
